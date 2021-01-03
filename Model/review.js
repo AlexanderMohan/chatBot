@@ -3,10 +3,12 @@ require('dotenv').config()
 let url=process.env.mongoAtlas
 // let url=process.env.mongoLocal
 
-mongoose.connect(url,({
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-}))
+mongoose.connect("mongodb://localhost:27017/chat", {
+    "auth": { "authSource": "admin" },
+    "user": "root",
+    "pass": "example",
+    "useMongoClient": true
+});
 
 
 let schema=new mongoose.Schema({
